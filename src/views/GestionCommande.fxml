@@ -44,7 +44,7 @@
                                     <Insets left="20.0" />
                                  </HBox.margin>
                                  <graphic>
-                                    <ImageView accessibleRole="BUTTON" fitHeight="33.0" fitWidth="60.0" onMouseClicked="#modifier" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView accessibleRole="BUTTON" fitHeight="33.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../images/edit.png" />
                                        </image>
@@ -95,7 +95,7 @@
                            <graphic>
                               <ImageView accessibleRole="BUTTON" fitHeight="42.0" fitWidth="49.0" onMouseClicked="#modifier" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../images/icons8-rapport-de-graphique-48.png" />
+                                    <Image url="@../images/icons8-pdf-64.png" />
                                  </image>
                               </ImageView>
                            </graphic>

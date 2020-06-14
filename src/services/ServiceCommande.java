@@ -109,13 +109,14 @@ public class ServiceCommande implements IServiceCommande<Commande> {
 
     @Override
     public void modifier(int prixprod, int prixlivr, String produit) {
-        String sql = "UPDATE Commande SET prixprod = ? ,prixlivr =? ,amount =?,produit =? WHERE id=?";
+        String sql = "UPDATE Commande SET prixprod = ? ,prixlivr =?,produit =? WHERE id=?";
 
         try {
             PreparedStatement statement = con.prepareStatement(sql);
             statement.setInt(1, prixprod);
             statement.setInt(2, prixlivr);
-            statement.setString(3, produit);
+            statement.setInt(3, prixprod + prixlivr);
+            statement.setString(4, produit);
             statement.executeUpdate();
             System.out.println("Commande Modifiée");
         } catch (SQLException ex) {

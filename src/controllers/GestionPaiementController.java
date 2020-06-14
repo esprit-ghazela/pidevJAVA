@@ -12,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,6 +23,8 @@ import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -30,6 +33,8 @@ import javafx.scene.layout.BorderPane;
 import models.Categorie;
 import models.Commande;
 import models.Paiement;
+import services.ServiceCommande;
+import services.ServicePaiement;
 import utils.ConnectionUtil;
 
 /**
@@ -62,6 +67,7 @@ public class GestionPaiementController implements Initializable {
     @FXML
     private TableColumn<?, ?> codep;
     ObservableList<Paiement> ListPaiement = FXCollections.observableArrayList();
+    ServicePaiement paiementService = new ServicePaiement();
 
     /**
      * Initializes the controller class.
@@ -145,6 +151,25 @@ public class GestionPaiementController implements Initializable {
 
     @FXML
     private void supprimer(ActionEvent event) {
+         int x = PaiementSelectionner();
+        Alert a1 = new Alert(Alert.AlertType.WARNING);
+        a1.setTitle("Supprimer paiement");
+        a1.setContentText("Vous voulez vraiment supprimer cet paiement ?");
+        Optional<ButtonType> result = a1.showAndWait();
+        if (result.get() == ButtonType.OK) {
+            paiementService.supprimer(x);
+            Alert a2 = new Alert(Alert.AlertType.INFORMATION);
+            a2.setTitle("Supprimer commande");
+            a2.setContentText("paiement supprimé avec succés!");
+            a2.show();
+
+            ListPaiement.clear();
+            AfficherPaiement();
+
+        } else {
+            a1.close();
+        }
+
     }
 
     @FXML

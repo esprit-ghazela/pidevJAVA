@@ -37,18 +37,16 @@ public class ModifierCommandeController implements Initializable {
     @FXML
     private Label errors_prod;
     @FXML
-    private JFXTextArea prixl;
+    private JFXTextField prixl;
     @FXML
     private Label errors_livr;
     @FXML
-    private JFXTextField prod;
+    private JFXTextArea prod;
     @FXML
     private Label errors_lprod;
     private Commande commande;
     @FXML
     private JFXButton modifier_commande_btn;
-    @FXML
-    private JFXTextField id_categorie_modifier;
 
     /**
      * Initializes the controller class.
@@ -63,24 +61,37 @@ public class ModifierCommandeController implements Initializable {
         stage.close();
     }
 
+
+    void setCommande(Commande c) {
+        commande = c;
+        System.out.println(c);
+        prixpp.setText(String.valueOf(commande.getPrixprod()));
+        prixl.setText(String.valueOf(commande.getPrixlivr()));
+        prod.setText(commande.getProduit());
+    }
+
+   
+
+    @FXML
     private void ModifierCommande(ActionEvent event) {
-
-        if (errors_prod.getText().isEmpty() || errors_livr.getText().isEmpty()) {
-            if (errors_prod.getText().isEmpty()) {
-                errors_prod.setTextFill(Color.TOMATO);
-                errors_prod.setText("Le produit ne peut pas étre un champ vide");
-
-            } else {
+        if (prixpp.getText().isEmpty() || prixl.getText().isEmpty()) {
+            if (errors_lprod.getText().isEmpty()) {
                 errors_lprod.setTextFill(Color.TOMATO);
-                errors_lprod.setText("Le produit ne peut pas étre un champ vide");
+                errors_lprod.setText("Le prix produit ne peut pas étre un champ vide");
+
+            } else if (prod.getText().isEmpty()){
                 errors_livr.setTextFill(Color.TOMATO);
                 errors_livr.setText("Le prix livraison ne peut pas étre un champ vide");
+                errors_prod.setTextFill(Color.TOMATO);
+                errors_prod.setText("Le produit ne peut pas étre un champ vide");
             }
         } else {
 
             ServiceCommande sc = new ServiceCommande();
             int prixprod = Integer.valueOf(prixpp.getText());
             int prixlivr = Integer.valueOf(prixl.getText());
+            int amount = Integer.parseInt(prixl.getText()) + Integer.parseInt(prixpp.getText());
+
             String produit = prod.getText();
 
             Alert a1 = new Alert(Alert.AlertType.CONFIRMATION);
@@ -95,14 +106,5 @@ public class ModifierCommandeController implements Initializable {
             }
 
         }
-
-    }
-
-    void setCommande(Commande c) {
-        commande = c;
-        System.out.println(c);
-        prixpp.setText(String.valueOf(commande.getPrixprod()));
-        prixl.setText(String.valueOf(commande.getPrixlivr()));
-        prod.setText(commande.getProduit());
     }
 }

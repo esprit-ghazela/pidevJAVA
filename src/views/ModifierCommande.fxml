@@ -17,7 +17,7 @@
             <Insets left="-15.0" right="-15.0" top="-15.0" />
          </VBox.margin>
          <children>
-            <Button fx:id="btn_close" mnemonicParsing="false" onAction="" prefHeight="31.0" prefWidth="48.0" styleClass="button-dialog-close" text="X">
+            <Button fx:id="btn_close" mnemonicParsing="false" prefHeight="31.0" prefWidth="48.0" styleClass="button-dialog-close" text="X">
                <font>
                   <Font name="Comic Sans MS" size="14.0" />
                </font>
@@ -42,30 +42,29 @@
                         <Insets top="5.0" />
                      </VBox.margin>
                   </JFXTextField>
-                  <Label fx:id="errors_prod" prefHeight="15.0" prefWidth="442.0" styleClass="label-errors">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin></Label>
-                  <Label fx:id="errors_livr" layoutX="35.0" layoutY="78.0" prefHeight="12.0" prefWidth="228.0" styleClass="label-errors">
+                  <Label fx:id="errors_lprod" prefHeight="15.0" prefWidth="283.0" styleClass="label-errors" />
+                  <JFXTextField fx:id="prixl" focusColor="#d1d1d1" prefHeight="40.0" prefWidth="336.0" promptText="Nom" text="Prix Livraison" unFocusColor="#d1d1d1" />
+                  <Label fx:id="errors_livr" layoutX="35.0" layoutY="78.0" prefHeight="15.0" prefWidth="283.0" styleClass="label-errors">
                      <VBox.margin>
                         <Insets top="5.0" />
                      </VBox.margin>
                   </Label>
-                  <JFXTextField fx:id="prod" focusColor="#d1d1d1" prefHeight="40.0" prefWidth="336.0" promptText="Nom" text="Produit" unFocusColor="#d1d1d1" />
-                  <Label fx:id="errors_lprod" prefHeight="12.0" prefWidth="228.0" styleClass="label-errors" />
-                  <JFXTextField fx:id="id_categorie_modifier" editable="false" focusColor="#d1d1d1" layoutX="35.0" layoutY="30.0" prefHeight="40.0" prefWidth="336.0" unFocusColor="#d1d1d1" visible="false" />
-                  <JFXTextArea fx:id="prixl" focusColor="#d1d1d1" prefHeight="68.0" prefWidth="182.0" promptText="Description" text="Prix Livraison" unFocusColor="#d1d1d1">
+                  <JFXTextArea fx:id="prod" focusColor="#d1d1d1" prefHeight="68.0" prefWidth="182.0" promptText="Description" text="Produit" unFocusColor="#d1d1d1">
                      <VBox.margin>
                         <Insets top="5.0" />
                      </VBox.margin>
                   </JFXTextArea>
+                  <Label fx:id="errors_prod" prefHeight="15.0" prefWidth="291.0" styleClass="label-errors">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin></Label>
                </children>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="436.0" prefWidth="496.0" styleClass="content-dialog-right">
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="403.0" styleClass="content-dialog-right">
                <children>
                   <HBox alignment="CENTER" prefHeight="79.0" prefWidth="333.0" styleClass="content-h-uplaod">
                      <children>
-                        <JFXButton fx:id="modifier_commande_btn" onAction="ModifierCommande" prefHeight="49.0" prefWidth="120.0" style="-fx-background-color: #4099ff;" styleClass="button-save" text="Modifier">
+                        <JFXButton fx:id="modifier_commande_btn" onAction="#ModifierCommande" prefHeight="49.0" prefWidth="120.0" style="-fx-background-color: #4099ff;" styleClass="button-save" text="Modifier">
                            <font>
                               <Font name="Century Gothic" size="17.0" />
                            </font>

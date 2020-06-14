@@ -28,6 +28,7 @@ public class ServicePaiement implements IServicePaiement<Paiement> {
 
     Connection cnx = ConnectionUtil.getInstance().conDB();
     private PreparedStatement pre;
+    Connection con = null;
 
     private Statement pst;
 
@@ -72,14 +73,19 @@ public class ServicePaiement implements IServicePaiement<Paiement> {
     }
 
     @Override
-    public void supprimer(int id) {
+    public void supprimer(int x) {
+        String sql = "DELETE FROM paiement WHERE id = ? ";
         try {
-            String requete = "DELETE FROM paiement WHERE id=?";
-            PreparedStatement pst = cnx.prepareStatement(requete);
-            pst.setInt(1, id);
-            pst.executeUpdate();
+            PreparedStatement statement = con.prepareStatement(sql);
+            statement.setInt(1, x);
+
+            statement.executeUpdate();
+
+            System.out.println("Paiement Supprimer");
+
         } catch (SQLException ex) {
-            System.err.println(ex.getMessage());
+            Logger.getLogger(ServicePaiement.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Paiement non Supprimer");
         }
     }
 

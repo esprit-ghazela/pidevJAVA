@@ -28,7 +28,13 @@ public class Commande {
         this.produit = produit;
     }
 
-   
+    public Commande(int prixprod, int prixlivr, String produit) {
+
+        this.prixprod = prixprod;
+
+        this.prixlivr = prixlivr;
+        this.produit = produit;
+    }
 
     public Commande(int prixprod, int amount, LocalDateTime dateCom, int prixlivr, String produit) {
         this.prixprod = prixprod;
@@ -46,17 +52,11 @@ public class Commande {
         this.dateCom = dateCom;
 
     }
-public Commande(int prixprod, int prixlivr,String produit) {
-        this.prixprod = prixprod;
-        this.prixlivr = prixlivr;
-        this.produit = produit;
 
-    }
+    
+
     public Commande() {
     }
-
-    
-    
 
     public int getId() {
         return id;
@@ -115,16 +115,9 @@ public Commande(int prixprod, int prixlivr,String produit) {
         this.user_id = user_id;
     }
 
-  
-
     @Override
     public String toString() {
         return "Commande{" + "id=" + id + ", user_id=" + user_id + ", prixprod=" + prixprod + ", amount=" + amount + ", dateCom=" + dateCom + ", prixlivr=" + prixlivr + ", produit=" + produit + '}';
     }
-    
-
-   
-
-  
 
 }

@@ -14,7 +14,7 @@ import java.util.List;
  */
 public interface IServicePaiement<P> {
     public void ajouter(P p);
-    public void supprimer(int id );
+    public void supprimer(int x );
     public void modifier(P p,int id);
     public List<P> afficher()throws SQLException;
     

@@ -29,6 +29,7 @@ public class ServiceLivraison implements IServiceLivraison<Livraison> {
     Connection cnx = ConnectionUtil.getInstance().conDB();
     private Statement pst;
     private PreparedStatement pre;
+    Connection con = null;
 
     @Override
     public void ajouter(Livraison l) {
@@ -69,14 +70,19 @@ public class ServiceLivraison implements IServiceLivraison<Livraison> {
     }
 
     @Override
-    public void supprimer(int id) {
+    public void supprimer(int x) {
+       String sql = "DELETE FROM livraison WHERE id = ? ";
         try {
-            String requete = "DELETE FROM livraison WHERE id=?";
-            PreparedStatement pst = cnx.prepareStatement(requete);
-            pst.setInt(1, id);
-            pst.executeUpdate();
+            PreparedStatement statement = con.prepareStatement(sql);
+            statement.setInt(1, x);
+
+            statement.executeUpdate();
+
+            System.out.println("Livraison Supprimer");
+
         } catch (SQLException ex) {
-            System.err.println(ex.getMessage());
+            Logger.getLogger(ServiceLivraison.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Livraison non Supprimer");
         }
     }
 

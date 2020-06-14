@@ -117,6 +117,7 @@ public class GestionCommandeController implements Initializable {
             Logger.getLogger(GestionCommandeController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
     private int CommandeSelectionner() {
         int selectedItem = liste_commande.getSelectionModel().getSelectedItem().getId();
         int selectedIndex = liste_commande.getSelectionModel().getSelectedIndex();
@@ -124,9 +125,7 @@ public class GestionCommandeController implements Initializable {
         return selectedItem;
     }
 
-    @FXML
-    private void modifier(MouseEvent event) {
-    }
+   
 
     @FXML
     private void ajouter(ActionEvent event) {
@@ -146,7 +145,7 @@ public class GestionCommandeController implements Initializable {
             a2.setContentText("commande supprimé avec succés!");
             a2.show();
 
-            liste_commande.getItems().clear();
+            ListCommande.clear();
             AfficherCommande();
 
         } else {
@@ -169,12 +168,10 @@ public class GestionCommandeController implements Initializable {
             dialog.initStyle(StageStyle.UNDECORATED);
             dialog.show();
         } catch (IOException ex) {
+            Logger.getLogger(GestionCommandeController.class.getName()).log(Level.SEVERE, null, ex);
 
         }
     }
-
-  
-
 
     private void Recherche() {
 
@@ -201,7 +198,7 @@ public class GestionCommandeController implements Initializable {
 
     @FXML
     private void exporterPDF(ActionEvent event) {
-          Commande selectedItem = liste_commande.getSelectionModel().getSelectedItem();
+        Commande selectedItem = liste_commande.getSelectionModel().getSelectedItem();
         System.out.println(selectedItem.getId());
         if (selectedItem != null) {
 
@@ -234,7 +231,7 @@ public class GestionCommandeController implements Initializable {
 
     @FXML
     private void reafficher_commande(MouseEvent event) {
-          ListCommande.clear();
-          AfficherCommande();
+        ListCommande.clear();
+        AfficherCommande();
     }
 }

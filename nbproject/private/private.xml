@@ -3,15 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/aziz%20khbou/Documents/NetBeansProjects/test1/src/models/Commande.java</file>
-            <file>file:/C:/Users/aziz%20khbou/Documents/NetBeansProjects/test1/src/models/Methode.java</file>
-            <file>file:/C:/Users/aziz%20khbou/Documents/NetBeansProjects/test1/src/models/Produit.java</file>
+            <file>file:/C:/Users/aziz%20khbou/Documents/NetBeansProjects/test1/src/controllers/GestionCommandeController.java</file>
+            <file>file:/C:/Users/aziz%20khbou/Documents/NetBeansProjects/test1/src/controllers/ModifierCommandeController.java</file>
             <file>file:/C:/Users/aziz%20khbou/Documents/NetBeansProjects/test1/src/controllers/CommandeController.java</file>
-            <file>file:/C:/Users/aziz%20khbou/Documents/NetBeansProjects/test1/src/controllers/PaiementController.java</file>
-            <file>file:/C:/Users/aziz%20khbou/Documents/NetBeansProjects/test1/src/views/Commande.fxml</file>
-            <file>file:/C:/Users/aziz%20khbou/Documents/NetBeansProjects/test1/src/services/ServicePaiement.java</file>
-            <file>file:/C:/Users/aziz%20khbou/Documents/NetBeansProjects/test1/src/models/Paiement.java</file>
-            <file>file:/C:/Users/aziz%20khbou/Documents/NetBeansProjects/test1/src/controllers/ModifierUtilisateurController.java</file>
+            <file>file:/C:/Users/aziz%20khbou/Documents/NetBeansProjects/test1/src/controllers/ModifierCategorieController.java</file>
+            <file>file:/C:/Users/aziz%20khbou/Documents/NetBeansProjects/test1/src/services/ServiceCommande.java</file>
         </group>
     </open-files>
 </project-private>
