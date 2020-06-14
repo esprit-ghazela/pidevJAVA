@@ -1,0 +1,52 @@
+/* accueil total */
+.hover-blue:hover {
+    -fx-background-color: #6699f0;
+    -fx-cursor: hand ;
+}
+
+.hover-blue:hover text {
+    -fx-fill: white !important;
+}
+
+.hover-blue-right:hover {
+    -fx-border-color: black ;
+    -fx-border-width: 0px 4px 0px 0px;
+}
+
+.cursor-hand{
+    -fx-cursor: hand;
+}
+
+.hover-dark-blue:hover{
+    -fx-background-color: #6699f0 !important;
+}
+
+.hover-link:hover{
+    -fx-background-color: transparent !important;
+}
+/*******  Acuuill froont ********/
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-font-family: "Century Gothic";
+ }
+ .nav-top {
+     -fx-font-family: "Century Gothic";
+     -fx-font-size: 17px
+ }
+ .nav-right {
+     -fx-alignment: TOP_RIGHT
+ }
+ .nav_button {
+     -fx-background-color: transparent;
+     -fx-pref-height: 47
+ }
+ .nav_button:hover , .nav_button:focused {
+     -fx-border-color: black;
+     -fx-border-width: 0 0 2 0;
+     -fx-background-color: transparent
+ }
+ .bl_search .text-field {
+    -fx-background-color: #fff;
+    -fx-pref-width: 225;
+    -fx-border-color: #fff;
+ }
