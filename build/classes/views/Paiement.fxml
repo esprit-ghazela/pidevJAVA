@@ -5,12 +5,14 @@
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane fx:id="borderpan2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="589.0" prefWidth="1099.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.PaiementController">
-   <left>
+   <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <ButtonBar prefHeight="40.0" prefWidth="200.0" />
@@ -52,8 +54,13 @@
             <Label fx:id="errors_pays" layoutX="32.0" layoutY="231.0" prefHeight="15.0" prefWidth="442.0" styleClass="label-errors" />
             <Label fx:id="errors_code" layoutX="28.0" layoutY="393.0" prefHeight="15.0" prefWidth="442.0" styleClass="label-errors" />
             <ComboBox fx:id="paiement_commande" layoutX="28.0" layoutY="356.0" prefHeight="28.0" prefWidth="341.0" promptText="Choix de la commande" style="-fx-background-color: #93263a;" />
-            <ComboBox fx:id="paiement_methode" layoutX="30.0" layoutY="410.0" prefHeight="28.0" prefWidth="340.0" promptText="Choix de la methode de paiement" style="-fx-background-color: #93263a;" />
+            <ComboBox fx:id="paiement_methode" layoutX="29.0" layoutY="410.0" prefHeight="28.0" prefWidth="340.0" promptText="Choix de la methode de paiement" style="-fx-background-color: #93263a;" />
+            <ImageView fitHeight="32.0" fitWidth="112.0" layoutX="376.0" layoutY="408.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Downloads/paypal.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
-   </left>
+   </center>
 </BorderPane>

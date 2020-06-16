@@ -118,7 +118,6 @@ public class LivraisonController implements Initializable {
 
     private void clearFields() {
         adrl.clear();
-        etall.clear();
         datel.setValue(null);
 
     }

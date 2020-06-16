@@ -26,7 +26,6 @@ import utils.ConnectionUtil;
  */
 public class ServiceLivraison implements IServiceLivraison<Livraison> {
 
-    Connection cnx = ConnectionUtil.getInstance().conDB();
     private Statement pst;
     private PreparedStatement pre;
     Connection con = null;
@@ -35,7 +34,7 @@ public class ServiceLivraison implements IServiceLivraison<Livraison> {
     public void ajouter(Livraison l) {
         try {
             String requete = "INSERT INTO livraison (paiement_id,adresseLivr,etat,datelivr)Values (?,?,?,?)";
-            PreparedStatement pst = cnx.prepareStatement(requete);
+            PreparedStatement pst = con.prepareStatement(requete);
             pst.setInt(1, l.getPaiement_id());
             pst.setString(1, l.getAdresseLivr());           
             pst.setString(2, l.getEtat());
@@ -53,7 +52,7 @@ public class ServiceLivraison implements IServiceLivraison<Livraison> {
     @Override
     public List<Livraison> afficher() throws SQLException {
         List<Livraison> list = new ArrayList<>();
-        pst = cnx.createStatement();
+        pst = con.createStatement();
 
         ResultSet rs = pst.executeQuery("select * from livraison");
         while (rs.next()) {
@@ -91,7 +90,7 @@ public class ServiceLivraison implements IServiceLivraison<Livraison> {
         try {
             Date dl = new java.sql.Date(l.getDatelivr().getTime());
 
-            pre = cnx.prepareStatement("UPDATE livraison SET adresseLivr = ? ,etat =? ,datelivr =? WHERE id=?");
+            pre = con.prepareStatement("UPDATE livraison SET adresseLivr = ? ,etat =? ,datelivr =? WHERE id=?");
             pre.setString(1, l.getAdresseLivr());
             pre.setString(2, l.getEtat());
             pre.setDate(3, dl);

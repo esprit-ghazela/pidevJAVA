@@ -26,7 +26,6 @@ import utils.ConnectionUtil;
  */
 public class ServicePaiement implements IServicePaiement<Paiement> {
 
-    Connection cnx = ConnectionUtil.getInstance().conDB();
     private PreparedStatement pre;
     Connection con = null;
 
@@ -36,7 +35,7 @@ public class ServicePaiement implements IServicePaiement<Paiement> {
     public void ajouter(Paiement p) {
         try {
             String requete = "INSERT INTO paiement (commande_id,methodedepaiement_id,email,nom_companie,pays,district,codePostal)Values (?,?,?,?,?)";
-            PreparedStatement pst = cnx.prepareStatement(requete);
+            PreparedStatement pst = con.prepareStatement(requete);
             pst.setInt(1, p.getCommande_id());
             pst.setInt(2, p.getMethodedepaiement_id());
             pst.setString(3, p.getEmail());
@@ -55,7 +54,7 @@ public class ServicePaiement implements IServicePaiement<Paiement> {
     @Override
     public List afficher() throws SQLException {
         List<Paiement> list = new ArrayList<>();
-        pst = cnx.createStatement();
+        pst = con.createStatement();
 
         ResultSet rs = pst.executeQuery("select * from paiement");
         while (rs.next()) {
@@ -93,7 +92,7 @@ public class ServicePaiement implements IServicePaiement<Paiement> {
     public void modifier(Paiement p, int id) {
         try {
 
-            pre = cnx.prepareStatement("UPDATE Paiement SET email = ? ,nom_companie =? ,pays =?,district =? ,codePostal =? WHERE id=?");
+            pre = con.prepareStatement("UPDATE Paiement SET email = ? ,nom_companie =? ,pays =?,district =? ,codePostal =? WHERE id=?");
             pre.setString(1, p.getEmail());
             pre.setString(2, p.getNom_companie());
             pre.setString(3, p.getPays());
